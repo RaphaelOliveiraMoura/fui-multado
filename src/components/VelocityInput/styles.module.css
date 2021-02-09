@@ -1,0 +1,25 @@
+.input-container {
+  width: 300px;
+  margin: 8px 26px;
+}
+
+.input-container > div {
+  position: relative;
+  margin-bottom: 4px;
+}
+
+.input-container input {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--primary-color);
+  padding: 14px 16px;
+  font-size: 34px;
+  background-color: transparent;
+}
+
+.input-container span {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
