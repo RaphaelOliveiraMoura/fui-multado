@@ -51,3 +51,9 @@ input::-webkit-inner-spin-button {
 input[type='number'] {
   -moz-appearance: textfield;
 }
+
+@media (max-width: 500px) {
+  button {
+    padding: 14px 20px;
+  }
+}

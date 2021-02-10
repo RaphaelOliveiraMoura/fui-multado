@@ -19,15 +19,18 @@
   background: var(--bold-error-color);
 }
 
-.main section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.main > div {
   background: url('../../public/images/background.svg') no-repeat;
   min-height: 100vh;
   background-position: 15% 50%;
   padding: 8px 26px;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .main h1 {
@@ -52,10 +55,6 @@
   align-items: center;
 }
 
-.main header a {
-  cursor: default;
-}
-
 .main header img {
   transition: all 0.5s;
 }
@@ -78,6 +77,12 @@
 @media (max-width: 750px) {
   .main form > div {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 540px) {
+  .main > div {
+    background-position: 25% 50%;
   }
 }
 
