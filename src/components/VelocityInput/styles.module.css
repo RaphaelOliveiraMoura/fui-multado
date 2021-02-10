@@ -1,5 +1,5 @@
 .input-container {
-  width: 300px;
+  max-width: 300px;
   margin: 8px 26px;
 }
 
@@ -13,7 +13,7 @@
   border-radius: 8px;
   border: 1px solid var(--primary-color);
   padding: 14px 16px;
-  font-size: 34px;
+  font-size: 24px;
   background-color: transparent;
 }
 

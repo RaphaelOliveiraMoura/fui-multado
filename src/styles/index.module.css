@@ -1,10 +1,33 @@
 .main {
+  background: var(--primary-color);
+  transition: all 0.5s;
+}
+
+.__NOT_FINED__ {
+  --primary-color: var(--success-color);
+}
+
+.__FINED__ {
+  --primary-color: var(--error-color);
+}
+
+.__NOT_FINED__ button {
+  background: var(--bold-success-color);
+}
+
+.__FINED__ button {
+  background: var(--bold-error-color);
+}
+
+.main section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(180deg, #42a4c2 -1.66%, #f3f5ff 100%);
+  background: url('../../public/images/background.svg') no-repeat;
   min-height: 100vh;
+  background-position: 15% 50%;
+  padding: 8px 26px;
 }
 
 .main h1 {
@@ -29,8 +52,41 @@
   align-items: center;
 }
 
+.main header a {
+  cursor: default;
+}
+
+.main header img {
+  transition: all 0.5s;
+}
+
+.main header:hover img {
+  transform: translateY(-5px);
+}
+
 .main form > div {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.image-container {
+  max-width: 400px;
+  max-height: 300px;
+}
+
+@media (max-width: 750px) {
+  .main form > div {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 400px) {
+  .main form {
+    justify-content: center;
+  }
+
+  .main h1 {
+    font-size: 35px;
+  }
 }

@@ -2,6 +2,10 @@
 
 :root {
   --primary-color: #2a3676;
+  --error-color: #ec4646;
+  --bold-error-color: #f11f1f;
+  --success-color: #46ec74;
+  --bold-success-color: #247d32;
 }
 
 * {
@@ -31,10 +35,12 @@ button {
   background-color: var(--primary-color);
   color: #fff;
   border-radius: 8px;
+  border: 1px solid #fff;
   font-size: 24px;
   font-weight: 600;
   margin-top: 14px;
   cursor: pointer;
+  transition: all 1s;
 }
 
 input::-webkit-outer-spin-button,
