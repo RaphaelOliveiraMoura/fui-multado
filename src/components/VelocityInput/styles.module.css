@@ -27,3 +27,8 @@
   top: 50%;
   transform: translateY(-50%);
 }
+
+.input-container p {
+  color: var(--error-color);
+  font-size: 12px;
+}

@@ -21,6 +21,8 @@ export default function Home() {
   const [radarVelocity, setRadarVelocity] = useState(0);
   const [limitVelocity, setLimitVelocity] = useState(60);
 
+  const [errors, setErrors] = useState({});
+
   function smoothScroll({ top = false }) {
     setTimeout(
       () =>
@@ -32,8 +34,27 @@ export default function Home() {
     );
   }
 
+  function checkErrors() {
+    const isPositive = (number) => Number(number) > 0;
+
+    const errors = {
+      radarVelocity:
+        !isPositive(radarVelocity) &&
+        'Verifique se digitou uma velocidade válida',
+      limitVelocity:
+        !isPositive(limitVelocity) &&
+        'Verifique se digitou uma velocidade válida',
+    };
+
+    setErrors(errors);
+
+    return Object.values(errors).filter((error) => !!error).length === 0;
+  }
+
   function onSubmit(event) {
     event.preventDefault();
+
+    if (!checkErrors()) return;
 
     if (homeState !== HOME_STATE.start) {
       setHomeState(HOME_STATE.start);
@@ -71,6 +92,7 @@ export default function Home() {
                 value={radarVelocity}
                 onChange={(e) => setRadarVelocity(e.target.value)}
                 disabled={homeState !== HOME_STATE.start}
+                error={errors.radarVelocity}
               />
               <VelocityInput
                 name="limit-velocity"
@@ -78,6 +100,7 @@ export default function Home() {
                 value={limitVelocity}
                 onChange={(e) => setLimitVelocity(e.target.value)}
                 disabled={homeState !== HOME_STATE.start}
+                error={errors.limitVelocity}
               />
             </div>
             <button type="submit">
