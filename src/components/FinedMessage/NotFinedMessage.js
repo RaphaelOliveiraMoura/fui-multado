@@ -2,7 +2,11 @@ import FreepikImage from '../FreepikImage';
 
 import styles from './styles.module.css';
 
-export default function FinedMessage() {
+import { getConsideredVelocity } from '../../utils/isFined';
+
+export default function FinedMessage({ radarVelocity }) {
+  const consideredVelocity = getConsideredVelocity({ radarVelocity });
+
   return (
     <section className={styles.container}>
       <FreepikImage
@@ -18,14 +22,15 @@ export default function FinedMessage() {
           MUITO PROVAVELMENTE VOCÊ <strong>NÃO</strong> FOI MULTADO
         </h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-          facilisis felis vel nulla volutpat varius. Aliquam erat volutpat. Sed
-          fermentum dictum molestie.
+          Sua <strong>velocidade considerada</strong> foi de{' '}
+          {consideredVelocity}km/h, então muito provavelmente você não recebeu
+          nenhuma multa
         </p>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-          facilisis felis vel nulla volutpat varius. Aliquam erat volutpat. Sed
-          fermentum dictum molestie.
+          O equipamento de radar móvel nem sempre atua com uma precisão de 100%.
+          De acordo com o Código de Trânsito Brasileiro existe uma{' '}
+          <strong>tolerância</strong> que é usada para definir a{' '}
+          <strong>velocidade considerada</strong> do condutor.
         </p>
       </div>
     </section>

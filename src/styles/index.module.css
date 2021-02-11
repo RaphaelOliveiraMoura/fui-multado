@@ -82,7 +82,7 @@
 
 @media (max-width: 540px) {
   .main > div {
-    background-position: 25% 50%;
+    background-position: 25% 0%;
   }
 }
 

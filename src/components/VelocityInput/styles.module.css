@@ -17,6 +17,10 @@
   background-color: transparent;
 }
 
+.input-container input:disabled {
+  background: #e7e7e7;
+}
+
 .input-container span {
   position: absolute;
   right: 16px;

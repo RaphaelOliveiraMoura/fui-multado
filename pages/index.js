@@ -21,21 +21,28 @@ export default function Home() {
   const [radarVelocity, setRadarVelocity] = useState(0);
   const [limitVelocity, setLimitVelocity] = useState(60);
 
-  function onSubmit(event) {
-    event.preventDefault();
-
-    const wasFined = isFined({ radarVelocity, limitVelocity });
-
-    setHomeState(wasFined ? HOME_STATE.fined : HOME_STATE.not_fined);
-
+  function smoothScroll({ top = false }) {
     setTimeout(
       () =>
         window.scrollTo({
           behavior: 'smooth',
-          top: document.body.scrollHeight,
+          top: top ? 0 : document.body.scrollHeight,
         }),
       300
     );
+  }
+
+  function onSubmit(event) {
+    event.preventDefault();
+
+    if (homeState !== HOME_STATE.start) {
+      setHomeState(HOME_STATE.start);
+      return smoothScroll({ top: true });
+    }
+
+    const wasFined = isFined({ radarVelocity, limitVelocity });
+    setHomeState(wasFined ? HOME_STATE.fined : HOME_STATE.not_fined);
+    smoothScroll({ top: false });
   }
 
   return (
@@ -63,12 +70,14 @@ export default function Home() {
                 label="Velocidade capturada pelo radar"
                 value={radarVelocity}
                 onChange={(e) => setRadarVelocity(e.target.value)}
+                disabled={homeState !== HOME_STATE.start}
               />
               <VelocityInput
                 name="limit-velocity"
                 label="Velocidade máxima da via"
                 value={limitVelocity}
                 onChange={(e) => setLimitVelocity(e.target.value)}
+                disabled={homeState !== HOME_STATE.start}
               />
             </div>
             <button type="submit">
@@ -78,8 +87,18 @@ export default function Home() {
             </button>
           </form>
         </section>
-        {homeState === HOME_STATE.fined && <FinedMessage />}
-        {homeState === HOME_STATE.not_fined && <NotFinedMessage />}
+        {homeState === HOME_STATE.fined && (
+          <FinedMessage
+            radarVelocity={radarVelocity}
+            limitVelocity={limitVelocity}
+          />
+        )}
+        {homeState === HOME_STATE.not_fined && (
+          <NotFinedMessage
+            radarVelocity={radarVelocity}
+            limitVelocity={limitVelocity}
+          />
+        )}
       </div>
     </main>
   );
