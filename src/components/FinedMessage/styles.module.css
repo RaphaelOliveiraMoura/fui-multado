@@ -5,9 +5,22 @@
   margin-top: 58px;
 }
 
+.container[aria-hidden='true'] {
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  position: fixed;
+}
+
 .container img {
   max-width: 400px;
   max-height: 400px;
+  transition: all 0.8s;
+}
+
+.container[aria-hidden='true'] img {
+  transform: translateX(-500px);
+  opacity: 0;
 }
 
 .container div {

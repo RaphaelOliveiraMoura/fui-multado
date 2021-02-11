@@ -7,7 +7,7 @@ export default function VelocityInput({ name, label, error, ...props }) {
         <input id={name} name={name} type="number" {...props} />
         <span>Km/h</span>
       </div>
-      <p visible={Boolean(error).toString()}>{error}</p>
+      <p aria-hidden={Boolean(!error).toString()}>{error}</p>
       <label htmlFor={name}>{label}</label>
     </div>
   );

@@ -40,7 +40,11 @@ button {
   font-weight: 600;
   margin-top: 14px;
   cursor: pointer;
-  transition: all 1s;
+  transition: background-color 1s, opacity 0.3s;
+}
+
+button:hover {
+  opacity: 0.9;
 }
 
 input::-webkit-outer-spin-button,

@@ -5,7 +5,11 @@ import styles from './styles.module.css';
 import getFinedType, { FINED_TYPES } from '../../utils/getFinedType';
 import { getConsideredVelocity } from '../../utils/isFined';
 
-export default function FinedMessage({ radarVelocity, limitVelocity }) {
+export default function FinedMessage({
+  radarVelocity,
+  limitVelocity,
+  visible,
+}) {
   const consideredVelocity = getConsideredVelocity({ radarVelocity });
 
   const finedType = getFinedType({ radarVelocity, limitVelocity });
@@ -26,7 +30,10 @@ export default function FinedMessage({ radarVelocity, limitVelocity }) {
   const finedTypeRange = finedTypeRangeMapping[finedType];
 
   return (
-    <section className={styles.container}>
+    <section
+      className={styles.container}
+      aria-hidden={Boolean(!visible).toString()}
+    >
       <FreepikImage
         src="/images/sad_person.svg"
         author="slidesgo"

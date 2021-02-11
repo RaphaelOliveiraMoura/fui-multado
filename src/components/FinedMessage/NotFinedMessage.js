@@ -4,11 +4,14 @@ import styles from './styles.module.css';
 
 import { getConsideredVelocity } from '../../utils/isFined';
 
-export default function FinedMessage({ radarVelocity }) {
+export default function FinedMessage({ radarVelocity, visible }) {
   const consideredVelocity = getConsideredVelocity({ radarVelocity });
 
   return (
-    <section className={styles.container}>
+    <section
+      className={styles.container}
+      aria-hidden={Boolean(!visible).toString()}
+    >
       <FreepikImage
         src="/images/happy_person.svg"
         author="jcomp"

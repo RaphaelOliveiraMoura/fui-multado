@@ -31,4 +31,12 @@
 .input-container p {
   color: var(--error-color);
   font-size: 12px;
+  transition: all 0.4s;
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.input-container p[aria-hidden='true'] {
+  transform: translateY(-20px);
+  opacity: 0;
 }

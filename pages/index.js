@@ -110,18 +110,16 @@ export default function Home() {
             </button>
           </form>
         </section>
-        {homeState === HOME_STATE.fined && (
-          <FinedMessage
-            radarVelocity={radarVelocity}
-            limitVelocity={limitVelocity}
-          />
-        )}
-        {homeState === HOME_STATE.not_fined && (
-          <NotFinedMessage
-            radarVelocity={radarVelocity}
-            limitVelocity={limitVelocity}
-          />
-        )}
+        <FinedMessage
+          radarVelocity={radarVelocity}
+          limitVelocity={limitVelocity}
+          visible={homeState === HOME_STATE.fined}
+        />
+        <NotFinedMessage
+          radarVelocity={radarVelocity}
+          limitVelocity={limitVelocity}
+          visible={homeState === HOME_STATE.not_fined}
+        />
       </div>
     </main>
   );
