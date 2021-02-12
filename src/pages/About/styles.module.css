@@ -1,0 +1,60 @@
+.main {
+  background: #e1ffce;
+  transition: all 0.5s;
+}
+
+.main > section {
+  background: url('../../../public/images/background.svg') no-repeat;
+  background-position: 15% 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.main > section > div {
+  max-width: 800px;
+  padding: 16px 26px;
+  position: relative;
+}
+
+.main header a {
+  position: absolute;
+  top: 16px;
+  right: 26px;
+}
+
+.main h1 {
+  text-align: center;
+  margin-top: 26px;
+}
+
+.main h2 {
+  margin: 18px 0;
+  text-align: center;
+}
+
+.main p {
+  margin: 8px 0;
+  text-align: justify;
+}
+
+.main ul li {
+  margin: 4px 0;
+}
+
+.main a {
+  color: var(--primary-color);
+}
+
+@media (max-width: 700px) {
+  .main p {
+    margin: 24px 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .main p {
+    margin: 38px 0;
+  }
+}

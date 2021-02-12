@@ -20,7 +20,7 @@
 }
 
 .main > div {
-  background: url('../../public/images/background.svg') no-repeat;
+  background: url('../../../public/images/background.svg') no-repeat;
   min-height: 100vh;
   background-position: 15% 50%;
   padding: 8px 26px;
@@ -33,6 +33,47 @@
   align-items: center;
 }
 
+.help-icon {
+  overflow: hidden;
+  position: absolute;
+  right: 20%;
+  top: 40vh;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.help-icon div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.help-icon img {
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.help-icon span {
+  color: #fff;
+  max-width: 230px;
+  background: #1a2352;
+  padding: 8px 12px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  transform: translateX(5000px);
+  opacity: 0;
+  transition: all 0.4s;
+  pointer-events: none;
+}
+
+.help-icon img:hover + span {
+  transform: translateX(0);
+  opacity: 1;
+}
+
 .main h1 {
   text-transform: uppercase;
   color: var(--primary-color);
@@ -40,6 +81,7 @@
   font-weight: bold;
   margin-bottom: 12px;
 }
+
 .main form {
   flex: 1;
   height: 100%;
@@ -76,6 +118,16 @@
 
 @media (max-width: 750px) {
   .main form > div {
+    flex-direction: column;
+  }
+
+  .help-icon {
+    right: 10%;
+    top: 18px;
+    transform: translateY(0);
+  }
+
+  .help-icon div {
     flex-direction: column;
   }
 }

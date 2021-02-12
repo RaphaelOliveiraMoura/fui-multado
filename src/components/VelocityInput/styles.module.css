@@ -17,6 +17,10 @@
   background-color: transparent;
 }
 
+.input-container[aria-invalid='true'] input {
+  border: 1px solid var(--error-color);
+}
+
 .input-container input:disabled {
   background: #e7e7e7;
 }

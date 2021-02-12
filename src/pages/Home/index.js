@@ -1,13 +1,15 @@
 import { useState } from 'react';
 
-import FreepikImage from '../components/FreepikImage';
-import VelocityInput from '../components/VelocityInput';
-import FinedMessage from '../components/FinedMessage/FinedMessage';
-import NotFinedMessage from '../components/FinedMessage/NotFinedMessage';
+import Link from 'next/link';
 
-import isFined from '../utils/isFined';
+import FreepikImage from '../../components/FreepikImage';
+import VelocityInput from '../../components/VelocityInput';
+import FinedMessage from '../../components/FinedMessage/FinedMessage';
+import NotFinedMessage from '../../components/FinedMessage/NotFinedMessage';
 
-import styles from '../styles/index.module.css';
+import isFined from '../../utils/isFined';
+
+import styles from './styles.module.css';
 
 const HOME_STATE = {
   start: '__START__',
@@ -18,7 +20,7 @@ const HOME_STATE = {
 export default function Home() {
   const [homeState, setHomeState] = useState(HOME_STATE.start);
 
-  const [radarVelocity, setRadarVelocity] = useState(0);
+  const [radarVelocity, setRadarVelocity] = useState('');
   const [limitVelocity, setLimitVelocity] = useState(60);
 
   const [errors, setErrors] = useState({});
@@ -70,6 +72,16 @@ export default function Home() {
     <main className={`${styles.main} ${styles[homeState]}`}>
       <div>
         <section className={styles['form-section']}>
+          <div className={styles['help-icon']}>
+            <div>
+              <Link href="/sobre">
+                <img src="/images/help-icon.svg" alt="Ícone de ajuda" />
+              </Link>
+              <span>
+                Saiba mais, sobre como nossos cálculos são realizados ?
+              </span>
+            </div>
+          </div>
           <form onSubmit={onSubmit}>
             <header>
               <div className={styles['image-container']}>
