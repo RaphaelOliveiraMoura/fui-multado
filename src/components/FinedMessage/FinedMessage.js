@@ -26,8 +26,8 @@ export default function FinedMessage({
     [FINED_TYPES.verySerious]: 'acima de 50% do limite da via',
   };
 
-  const finedTypeText = finedTypeMappingText[finedType];
-  const finedTypeRange = finedTypeRangeMapping[finedType];
+  const finedTypeText = finedTypeMappingText[finedType] || 'N/a';
+  const finedTypeRange = finedTypeRangeMapping[finedType] || 'N/a';
 
   return (
     <section
