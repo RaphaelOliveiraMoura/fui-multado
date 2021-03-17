@@ -63,7 +63,7 @@
   padding: 8px 12px;
   border-radius: 12px;
   margin-bottom: 8px;
-  transform: translateX(5000px);
+  transform: translateX(200px);
   opacity: 0;
   transition: all 0.4s;
   pointer-events: none;
@@ -133,6 +133,10 @@
 }
 
 @media (max-width: 540px) {
+  .main {
+    --primary-color: #1ddfdf;
+  }
+
   .main > div {
     background-position: 25% 0%;
   }

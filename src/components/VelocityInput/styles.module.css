@@ -15,6 +15,11 @@
   padding: 14px 16px;
   font-size: 24px;
   background-color: transparent;
+  transition: all 0.2s;
+}
+
+.input-container input:focus {
+  box-shadow: 1px 1px 5px var(--primary-color);
 }
 
 .input-container[aria-invalid='true'] input {

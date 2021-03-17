@@ -9,7 +9,7 @@ export default function About() {
         <div>
           <header>
             <Link href="/">
-              <a>Testar o app</a>
+              <a>Verifique se você foi multado</a>
             </Link>
           </header>
           <h1>Fui Multado?</h1>
@@ -17,7 +17,9 @@ export default function About() {
           <p>
             Bem vindo ao <strong>fuimultado.app</strong>, nosso principal
             objetivo é deixar claro para você como funciona os regulamentos
-            aplicados em infrações/multas por radar(es) eletrônicos.
+            aplicados em infrações/multas por radar(es) eletrônicos. Tentamos te
+            ajudar a descobrir de forma online e gratuita se você foi multado
+            passando por algum radar.
           </p>
           <p>
             Já passou por algum radar que marcou sua velocidade um pouquinho
@@ -27,14 +29,15 @@ export default function About() {
             o sistema de tolerância utilizado para multas em radares.
           </p>
           <p>
-            Aqui calculamos de forma <strong>automática</strong> a velocidade
-            considerada pelo radar e te informamos se você foi ou não multado
-            baseado na velocidade que foi marcada no radar.
+            Aqui calculamos de forma <strong>automática</strong> e{' '}
+            <strong>gratuita</strong> a velocidade considerada pelo radar e te
+            informamos se você foi ou não multado baseado na velocidade que foi
+            marcada no radar.
           </p>
           <p>
-            Primeiro precisamos entender que os radares possuem uma tolerância,
-            pois eles não tem uma precisão de 100% ao medir a velocidade do seu
-            veículo.
+            Primeiro, é importante entender que os radares possuem uma
+            tolerância, pois eles não tem uma precisão de 100% ao medir a
+            velocidade do seu veículo.
           </p>
           <h2>Qual é a tolerância do radar ?</h2>
           <p>
@@ -45,12 +48,13 @@ export default function About() {
           </p>
           <ul>
             <li>
-              - Até 100km/h a velocidade considerada é igual á{' '}
-              <strong>(VELOCIDADE MARCADA PELO RADAR) - 7km/h</strong>
+              - Até 100km/h a velocidade considerada é igual a:
+              <section>(VELOCIDADE MARCADA PELO RADAR) - 7km/h</section>
             </li>
             <li>
               - Para velocidades acima de 100km/h, a velocidade considerada é
-              igual a <strong>(VELOCIDADE MARCADA PELO RADAR) - 7%</strong>
+              igual a:
+              <section>(VELOCIDADE MARCADA PELO RADAR) - 7%</section>
             </li>
           </ul>
           <h2>Outras fontes</h2>
