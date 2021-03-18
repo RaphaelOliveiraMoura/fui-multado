@@ -3,11 +3,11 @@
   transition: all 0.5s;
 }
 
-.__NOT_FINED__ {
+main.__NOT_FINED__ {
   --primary-color: var(--success-color);
 }
 
-.__FINED__ {
+main.__FINED__ {
   --primary-color: var(--error-color);
 }
 
