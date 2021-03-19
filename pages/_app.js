@@ -14,6 +14,25 @@ function MyApp({ Component, pageProps }) {
           name="description"
           content="Já passou no radar alguns km/h a mais e ficou na dúvida se iria ou não tomar multa ? Tire essa dúvida de forma simples usando este site"
         />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-5VX9HZVRV2"
+        ></script>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-5VX9HZVRV2"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+            
+              gtag('config', 'G-5VX9HZVRV2');
+            `,
+          }}
+        />
       </Head>
       <Component {...pageProps} />
     </>
