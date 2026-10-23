@@ -50,17 +50,19 @@ export function Tabela({ atual }: { atual: Categoria }) {
                   transition={{ delay: i * 0.08 }}
                   style={{ ['--cor' as string]: v.cor, ['--tinta' as string]: v.tinta }}
                 >
-                  <td className={styles.mono}>{linha.faixa}</td>
-                  <td>
+                  <td className={styles.mono} data-rotulo="Acima do limite">{linha.faixa}</td>
+                  <td className={styles.celulaInfracao}>
                     <span className={styles.infracao}>
                       <span className={styles.ponto} />
                       {v.nome}
                       {ativa && <span className={styles.voce}>você</span>}
                     </span>
                   </td>
-                  <td>{v.multa!.valor}</td>
-                  <td>{v.multa!.pontos}</td>
-                  <td className={v.multa!.extra ? undefined : styles.vazio}>{v.multa!.extra ?? '—'}</td>
+                  <td data-rotulo="Multa">{v.multa!.valor}</td>
+                  <td data-rotulo="Pontos">{v.multa!.pontos}</td>
+                  <td className={v.multa!.extra ? styles.extra : styles.vazio} data-rotulo="Além disso">
+                    {v.multa!.extra ?? '—'}
+                  </td>
                 </motion.tr>
               );
             })}

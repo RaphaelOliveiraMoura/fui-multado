@@ -2,8 +2,8 @@
   position: relative;
   display: inline-flex;
   justify-content: center;
-  min-width: 1.6em;
-  padding: 0 0.14em;
+  min-width: 1.1em;
+  padding: 0 0.12em;
   border-radius: 0.12em;
   vertical-align: baseline;
   cursor: ew-resize;

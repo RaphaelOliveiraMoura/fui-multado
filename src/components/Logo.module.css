@@ -23,11 +23,9 @@
 
 .traco {
   display: block;
-  width: 16px;
   height: 4px;
   border-radius: 2px;
   background: var(--traco);
-  transform-origin: right center;
 }
 
 .nome {

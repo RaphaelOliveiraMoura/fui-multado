@@ -5,7 +5,8 @@ import { motion } from 'motion/react';
 import styles from './Logo.module.css';
 
 // Três traços de rastro atrás do nome em itálico: a pergunta em alta velocidade.
-const TRACOS = [1, 0.62, 0.82];
+// Animados por largura (e não por scaleX): num Android real o scaleX ficou em 0.
+const TRACOS = [16, 10, 13];
 
 export function Logo({ tom = 'escuro' }: { tom?: 'escuro' | 'claro' }) {
   return (
@@ -23,10 +24,10 @@ export function Logo({ tom = 'escuro' }: { tom?: 'escuro' | 'claro' }) {
           <motion.span
             key={i}
             className={styles.traco}
-            initial={{ scaleX: 0 }}
+            initial={{ width: 0 }}
             variants={{
-              parado: { scaleX: largura, transition: { delay: 0.15 + i * 0.08, type: 'spring', bounce: 0.3 } },
-              correndo: { scaleX: [largura, 1.5, largura], transition: { duration: 0.5, delay: i * 0.05 } },
+              parado: { width: largura, transition: { delay: 0.15 + i * 0.08, type: 'spring', bounce: 0.3 } },
+              correndo: { width: [largura, largura + 8, largura], transition: { duration: 0.5, delay: i * 0.05 } },
             }}
           />
         ))}

@@ -108,4 +108,26 @@
   .corpo {
     padding-inline: 20px;
   }
+
+  /* No celular os números viram linhas compactas: rótulo à esquerda, valor à direita. */
+  .fatos {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .fato {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-block: 12px;
+  }
+
+  .valor {
+    font-size: 30px;
+  }
+
+  .acoes > * {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
 }

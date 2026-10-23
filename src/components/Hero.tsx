@@ -36,15 +36,19 @@ const entrada = {
 export function Hero({ leitura, aoMudarRadar, aoMudarLimite, palco }: Props) {
   const [mostrarDica, setMostrarDica] = useState(false);
 
+  // A dica troca a sobrancelha do título por alguns segundos, uma vez por aparelho.
   useEffect(() => {
     try {
-      if (!localStorage.getItem(CHAVE_DICA)) {
-        const t = setTimeout(() => setMostrarDica(true), 1400);
-        return () => clearTimeout(t);
-      }
+      if (localStorage.getItem(CHAVE_DICA)) return;
     } catch {
-      // Sem storage (aba privada): a dica só não aparece.
+      return; // Sem storage (aba privada): a dica só não aparece.
     }
+    const abre = setTimeout(() => setMostrarDica(true), 1400);
+    const fecha = setTimeout(arrastou, 7400);
+    return () => {
+      clearTimeout(abre);
+      clearTimeout(fecha);
+    };
   }, []);
 
   function arrastou() {
@@ -70,49 +74,75 @@ export function Hero({ leitura, aoMudarRadar, aoMudarLimite, palco }: Props) {
 
       <section id="topo" className={`conteudo ${styles.hero}`}>
         <div ref={palco} className={styles.palco}>
-          <motion.span className="rotulo" style={{ color: 'var(--grafite)' }} variants={entrada} initial="oculto" animate="visivel" custom={0}>
-            Completa a frase
-          </motion.span>
+          <motion.div className={styles.sobrancelha} variants={entrada} initial="oculto" animate="visivel" custom={0}>
+            <AnimatePresence mode="wait" initial={false}>
+              {mostrarDica ? (
+                <motion.span
+                  key="dica"
+                  className={styles.dica}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                >
+                  <motion.span
+                    aria-hidden="true"
+                    animate={{ x: [0, -5, 0] }}
+                    transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+                  >
+                    ←
+                  </motion.span>
+                  arraste os números para os lados
+                  <motion.span
+                    aria-hidden="true"
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+                  >
+                    →
+                  </motion.span>
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="rotulo"
+                  className="rotulo"
+                  style={{ color: 'var(--grafite)' }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                >
+                  Completa a frase
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </motion.div>
 
+          {/* Cada número fica grudado na palavra antes dele, para a frase nunca quebrar entre "de" e "60". */}
           <h1 className={styles.frase}>
-            <motion.span className={styles.pedaco} variants={entrada} initial="oculto" animate="visivel" custom={1}>
-              Passei a{' '}
-            </motion.span>
-            <motion.span className={styles.pedaco} variants={entrada} initial="oculto" animate="visivel" custom={2}>
-              <span className={styles.ancora}>
-                <NumeroArrastavel
-                  valor={leitura.medida}
-                  aoMudar={aoMudarRadar}
-                  min={0}
-                  max={VELOCIDADE_MAXIMA}
-                  rotulo="Velocidade que o radar marcou, em km/h"
-                  variante="faixa"
-                  aoArrastar={arrastou}
-                />
-                <AnimatePresence>
-                  {mostrarDica && (
-                    <motion.span
-                      className={styles.dica}
-                      aria-hidden="true"
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 8 }}
-                    >
-                      <motion.span
-                        animate={{ x: [-6, 6, -6] }}
-                        transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
-                      >
-                        ← arraste →
-                      </motion.span>
-                    </motion.span>
-                  )}
-                </AnimatePresence>
-              </span>{' '}
-            </motion.span>
-            <motion.span className={styles.pedaco} variants={entrada} initial="oculto" animate="visivel" custom={3}>
-              km/h numa via de{' '}
-            </motion.span>
-            <motion.span className={styles.pedaco} variants={entrada} initial="oculto" animate="visivel" custom={4}>
+            <motion.span className={styles.grupo} variants={entrada} initial="oculto" animate="visivel" custom={1}>
+              Passei
+            </motion.span>{' '}
+            <motion.span className={styles.grupo} variants={entrada} initial="oculto" animate="visivel" custom={2}>
+              a{' '}
+              <NumeroArrastavel
+                valor={leitura.medida}
+                aoMudar={aoMudarRadar}
+                min={0}
+                max={VELOCIDADE_MAXIMA}
+                rotulo="Velocidade que o radar marcou, em km/h"
+                variante="faixa"
+                aoArrastar={arrastou}
+              />
+            </motion.span>{' '}
+            <motion.span className={styles.grupo} variants={entrada} initial="oculto" animate="visivel" custom={3}>
+              km/h
+            </motion.span>{' '}
+            <motion.span className={styles.grupo} variants={entrada} initial="oculto" animate="visivel" custom={3.5}>
+              numa
+            </motion.span>{' '}
+            <motion.span className={styles.grupo} variants={entrada} initial="oculto" animate="visivel" custom={4}>
+              via
+            </motion.span>{' '}
+            <motion.span className={styles.grupo} variants={entrada} initial="oculto" animate="visivel" custom={4.5}>
+              de{' '}
               <NumeroArrastavel
                 valor={leitura.limite}
                 aoMudar={aoMudarLimite}
@@ -121,6 +151,7 @@ export function Hero({ leitura, aoMudarRadar, aoMudarLimite, palco }: Props) {
                 rotulo="Velocidade máxima da via, em km/h"
                 variante="placa"
                 passo={10}
+                aoArrastar={arrastou}
               />
               .
             </motion.span>

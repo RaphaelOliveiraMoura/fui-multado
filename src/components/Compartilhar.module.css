@@ -17,6 +17,13 @@
   cursor: pointer;
 }
 
+@media (max-width: 560px) {
+  .botao {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
 .aviso {
   position: absolute;
   left: 0;
