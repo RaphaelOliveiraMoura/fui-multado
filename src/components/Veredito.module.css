@@ -1,0 +1,40 @@
+.linha {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 28px;
+  border-top: 2px solid var(--asfalto);
+  padding-top: 28px;
+}
+
+.pergunta {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1;
+}
+
+.resposta {
+  display: inline-flex;
+  overflow: hidden;
+  padding: 6px 18px;
+  border-radius: 12px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.texto {
+  display: block;
+}
+
+.resumo {
+  flex: 1 1 320px;
+  max-width: 500px;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--concreto);
+}

@@ -1,0 +1,31 @@
+.envoltorio {
+  position: relative;
+  display: inline-flex;
+}
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 0 26px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--faixa);
+  color: var(--asfalto);
+  font-weight: 700;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.aviso {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 10px);
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: var(--giz);
+  color: var(--asfalto);
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+}

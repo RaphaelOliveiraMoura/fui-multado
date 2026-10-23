@@ -1,0 +1,98 @@
+.secao {
+  padding-block: 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  scroll-margin-top: 16px;
+}
+
+.cabeca {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.titulo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 0.95;
+}
+
+.passos {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 20px;
+}
+
+.passo {
+  background: var(--pista);
+  border-radius: 20px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.numero {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--faixa);
+}
+
+.nome {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.05;
+}
+
+.conta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 64px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 52px;
+  line-height: 1;
+}
+
+.conta small {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--neblina);
+}
+
+.menos {
+  color: var(--faixa);
+}
+
+.placa {
+  width: 60px;
+  height: 60px;
+  flex: none;
+  border-radius: 50%;
+  border: 7px solid var(--placa);
+  background: #fff;
+  color: var(--asfalto);
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+}
+
+.selo {
+  font-size: 30px;
+  padding: 6px 14px;
+  border-radius: 10px;
+}
+
+.texto {
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--nevoa-clara);
+}

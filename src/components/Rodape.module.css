@@ -1,0 +1,78 @@
+.rodape {
+  border-top: 1px solid var(--concreto);
+}
+
+.dentro {
+  padding-block: 36px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 48px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 1;
+}
+
+.rastro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+.rastro span {
+  display: block;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--faixa);
+}
+
+.rastro span:nth-child(1) {
+  width: 13px;
+}
+
+.rastro span:nth-child(2) {
+  width: 8px;
+}
+
+.rastro span:nth-child(3) {
+  width: 11px;
+}
+
+.texto {
+  max-width: 620px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--neblina);
+}
+
+.pista {
+  height: 40px;
+  background:
+    repeating-linear-gradient(90deg, var(--faixa) 0 64px, transparent 64px 128px) center / 100% 6px no-repeat,
+    var(--pista);
+  animation: andar 1.6s linear infinite;
+}
+
+@keyframes andar {
+  to {
+    background-position:
+      -128px center,
+      0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pista {
+    animation: none;
+  }
+}

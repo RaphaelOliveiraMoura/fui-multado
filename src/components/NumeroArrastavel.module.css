@@ -1,0 +1,94 @@
+.caixa {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  min-width: 1.6em;
+  padding: 0 0.14em;
+  border-radius: 0.12em;
+  vertical-align: baseline;
+  cursor: ew-resize;
+  touch-action: pan-y;
+  user-select: none;
+  transition:
+    transform 0.25s var(--mola),
+    box-shadow 0.25s var(--mola);
+}
+
+.caixa[data-variante='faixa'] {
+  background: var(--faixa);
+  box-shadow: 0 0.06em 0 var(--asfalto);
+}
+
+.caixa[data-variante='placa'] {
+  box-shadow: inset 0 -0.08em 0 var(--placa);
+}
+
+.caixa:hover {
+  transform: translateY(-0.03em);
+}
+
+.caixa[data-arrastando='true'] {
+  transform: translateY(-0.04em) scale(1.04);
+}
+
+.caixa[data-variante='faixa'][data-arrastando='true'] {
+  box-shadow: 0 0.1em 0 var(--asfalto);
+}
+
+.caixa[data-focado='true'] {
+  cursor: text;
+  transform: none;
+}
+
+.digitos {
+  display: inline-flex;
+}
+
+.caixa[data-focado='true'] .digitos {
+  visibility: hidden;
+}
+
+.celula {
+  display: inline-grid;
+  overflow: hidden;
+  /* Folga vertical para o dígito que entra não ser cortado antes da hora. */
+  padding-block: 0.04em;
+  margin-block: -0.04em;
+}
+
+.digito {
+  grid-area: 1 / 1;
+  display: block;
+  font-variant-numeric: tabular-nums;
+}
+
+.campo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  color: transparent;
+  caret-color: var(--asfalto);
+  cursor: inherit;
+  /* O toque é tratado na caixa: arrastar muda o número, tocar abre o campo. */
+  pointer-events: none;
+}
+
+.caixa[data-focado='true'] .campo {
+  color: var(--asfalto);
+  pointer-events: auto;
+}
+
+.campo:focus-visible {
+  outline: none;
+}
+
+.caixa:has(.campo:focus-visible) {
+  outline: 3px solid var(--asfalto);
+  outline-offset: 4px;
+}

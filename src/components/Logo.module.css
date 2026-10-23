@@ -1,0 +1,40 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  text-decoration: none;
+  color: var(--asfalto);
+  --traco: var(--asfalto);
+}
+
+.logo[data-tom='claro'] {
+  color: var(--giz);
+  --traco: var(--faixa);
+}
+
+.rastro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  width: 16px;
+}
+
+.traco {
+  display: block;
+  width: 16px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--traco);
+  transform-origin: right center;
+}
+
+.nome {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}

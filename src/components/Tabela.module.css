@@ -1,0 +1,87 @@
+.secao {
+  padding-block: 0 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  scroll-margin-top: 16px;
+}
+
+.titulo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 0.95;
+}
+
+.rolagem {
+  overflow-x: auto;
+  border: 1px solid var(--concreto);
+  border-radius: 20px;
+}
+
+.tabela {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: 17px;
+}
+
+.tabela th {
+  padding: 16px 20px;
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--neblina);
+}
+
+.tabela td {
+  padding: 16px 20px;
+  border-top: 1px solid var(--concreto);
+  transition: background-color 0.3s;
+}
+
+.tabela tr[data-ativa='true'] td {
+  background: color-mix(in srgb, var(--cor) 14%, transparent);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.infracao {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.ponto {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--cor);
+}
+
+.voce {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--cor);
+  color: var(--tinta);
+}
+
+.vazio {
+  color: var(--neblina);
+}
+
+.nota {
+  font-size: 15px;
+  color: var(--neblina);
+}

@@ -1,0 +1,45 @@
+.linha {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+}
+
+.placas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.placa {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border-radius: 50%;
+  border: 6px solid var(--placa);
+  background: #fff;
+  color: var(--asfalto);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.numero {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 19px;
+  line-height: 1;
+}
+
+.anel {
+  position: absolute;
+  inset: -11px;
+  border-radius: 50%;
+  border: 3px solid var(--asfalto);
+}
+
+.placa[data-ativa='true'] .numero {
+  font-size: 21px;
+}

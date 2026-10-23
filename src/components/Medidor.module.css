@@ -1,0 +1,92 @@
+.medidor {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.trilho {
+  position: relative;
+  padding: 44px 0 14px;
+  cursor: ew-resize;
+  touch-action: pan-y;
+  border-radius: 8px;
+}
+
+.barras {
+  display: flex;
+  gap: 3px;
+  height: 16px;
+  align-items: center;
+}
+
+.barra {
+  height: 16px;
+  min-width: 0;
+  border-radius: 4px;
+  flex-grow: 0;
+  flex-shrink: 1;
+}
+
+.marcador {
+  position: absolute;
+  top: 0;
+  translate: -50% 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bolha {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  padding: 5px 8px;
+  border-radius: 6px;
+  background: var(--giz);
+  color: var(--asfalto);
+}
+
+.haste {
+  width: 2px;
+  height: 38px;
+  background: var(--giz);
+}
+
+.legenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 15px;
+  color: var(--nevoa-clara);
+}
+
+.legenda li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+}
+
+.legenda li[data-ativa='true'] {
+  color: var(--giz);
+  font-weight: 700;
+}
+
+.ponto {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.faixa {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--neblina);
+}

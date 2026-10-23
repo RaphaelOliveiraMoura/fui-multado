@@ -1,0 +1,93 @@
+:root {
+  /* A estrada à noite */
+  --asfalto: #111315;
+  --pista: #1b1e22;
+  --concreto: #2c3036;
+  --neblina: #9aa1ab;
+  --nevoa-clara: #c9cdd3;
+  --giz: #f3f1ea;
+  --grafite: #4b5058;
+
+  /* Sinalização */
+  --faixa: #ffc629;
+  --placa: #d7261e;
+
+  --font-display: var(--font-display-carregada), 'Barlow Condensed', sans-serif;
+  --font-body: var(--font-body-carregada), 'Barlow', sans-serif;
+  --font-mono: var(--font-mono-carregada), 'JetBrains Mono', monospace;
+
+  --mola: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --largura: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--asfalto);
+  color: var(--giz);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--faixa);
+}
+
+button {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--faixa);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.conteudo {
+  width: 100%;
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding-inline: 24px;
+}
+
+.rotulo {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--neblina);
+}
+
+.so-leitor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

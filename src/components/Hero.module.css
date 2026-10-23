@@ -1,0 +1,103 @@
+.faixa {
+  position: relative;
+  overflow: hidden;
+  background: var(--giz);
+  color: var(--asfalto);
+}
+
+.topo {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 20px;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 24px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--concreto);
+  text-decoration: none;
+  background: linear-gradient(var(--asfalto), var(--asfalto)) no-repeat left bottom 10px / 0 2px;
+  transition: background-size 0.3s var(--mola);
+}
+
+.nav a:hover {
+  background-size: 100% 2px;
+}
+
+.hero {
+  position: relative;
+  padding-block: 40px 72px;
+}
+
+.palco {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.frase {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(52px, 8vw, 120px);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  max-width: 1150px;
+}
+
+.pedaco {
+  display: inline-block;
+  white-space: pre-wrap;
+}
+
+.ancora {
+  position: relative;
+  display: inline-block;
+}
+
+.dica {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 10px);
+  translate: -50% 0;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--asfalto);
+  color: var(--faixa);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.descer {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  color: var(--asfalto);
+  font-size: 17px;
+  font-weight: 600;
+}
+
+@media (max-width: 560px) {
+  .nav {
+    display: none;
+  }
+}
