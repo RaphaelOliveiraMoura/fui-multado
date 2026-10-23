@@ -32,5 +32,6 @@ conferem o resto, `npm run build` gera a versão de produção.
 O endereço acompanha a frase (`/?radar=72&via=60`). Um link assim abre a página
 com esses números e gera o card de prévia em `/og?radar=72&via=60`.
 
-O endereço público vem de `NEXT_PUBLIC_SITE_URL` (padrão
-`https://fuimultado.app`).
+O endereço público vem de `NEXT_PUBLIC_SITE_URL`; sem ela, usa o domínio de
+produção que a Vercel informa (`VERCEL_PROJECT_PRODUCTION_URL`), hoje
+`fuimultado.onapp.tech`. O `fuimultado.app` não está ligado ao projeto.

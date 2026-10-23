@@ -1,6 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 import { ler, LIMITE_MAXIMO, numeroDoParametro, VELOCIDADE_MAXIMA, VEREDITOS } from '@/lib/radar';
+import { SITE_NOME } from '@/lib/site';
 
 // Card de compartilhamento: "Passei a 66 numa via de 60. NÃO." no amarelo da faixa.
 
@@ -28,9 +29,9 @@ export async function GET(request: Request) {
   const resposta = temResultado ? (leitura.multado ? 'SIM.' : 'NÃO.') : 'Respira e confere.';
   const rodape = temResultado
     ? leitura.multado
-      ? `${v.selo}: ${v.multa!.valor} e ${v.multa!.pontos} pontos. Confere a sua em fuimultado.app`
-      : `A tolerância me salvou. Confere a sua em fuimultado.app`
-    : 'A tolerância do radar, explicada em um segundo. fuimultado.app';
+      ? `${v.selo}: ${v.multa!.valor} e ${v.multa!.pontos} pontos. Confere a sua em ${SITE_NOME}`
+      : `A tolerância me salvou. Confere a sua em ${SITE_NOME}`
+    : `A tolerância do radar, explicada em um segundo. ${SITE_NOME}`;
   const fundo = temResultado && leitura.multado ? v.cor : '#FFC629';
   const tinta = temResultado && leitura.multado ? v.tinta : '#111315';
 

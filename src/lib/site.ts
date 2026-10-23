@@ -1,6 +1,14 @@
 import { ler, VEREDITOS } from './radar';
 
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://fuimultado.app';
+// Na Vercel, o domínio de produção do projeto; fuimultado.app não está ligado
+// a ele (2026-10-23). NEXT_PUBLIC_SITE_URL vence quando houver domínio próprio.
+const producao = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? (producao ? `https://${producao}` : 'http://localhost:6400');
+
+/** O endereço como aparece escrito: sem protocolo. */
+export const SITE_NOME = SITE_URL.replace(/^https?:\/\//, '');
 
 export const PADRAO = { radar: 67, via: 60 };
 
