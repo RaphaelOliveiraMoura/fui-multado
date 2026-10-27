@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { Experiencia } from '@/components/Experiencia';
 import { Rodape } from '@/components/Rodape';
 import { LIMITE_MAXIMO, numeroDoParametro, VELOCIDADE_MAXIMA } from '@/lib/radar';
-import { fraseDoResultado, PADRAO } from '@/lib/site';
+import { fraseDoResultado, PADRAO, SITE_URL } from '@/lib/site';
 
 type Props = { searchParams: Promise<Record<string, string | string[] | undefined>> };
 
@@ -29,10 +29,21 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   };
 }
 
+// Os dados estruturados dizem quem fez o site: todo produto da Hashord se declara criado por ela.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Fui multado?',
+  url: SITE_URL,
+  inLanguage: 'pt-BR',
+  creator: { '@type': 'Organization', name: 'Hashord', url: 'https://www.hashord.com' },
+};
+
 export default async function Home({ searchParams }: Props) {
   const { radar, via } = await lerParametros(searchParams);
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
       <Experiencia radarInicial={radar} limiteInicial={via} />
       <Rodape />
     </>

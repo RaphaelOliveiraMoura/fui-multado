@@ -1,4 +1,5 @@
 import styles from './Rodape.module.css';
+import { SeloHashord } from './SeloHashord';
 
 export function Rodape() {
   return (
@@ -17,6 +18,10 @@ export function Rodape() {
           notificação oficial do órgão de trânsito. Projeto de código aberto, feito por{' '}
           <a href="https://github.com/RaphaelOliveiraMoura/fui-multado">Raphael</a>.
         </p>
+      </div>
+      {/* O selo é a última coisa do rodapé, numa linha só dele; a pista abaixo é só a borda decorativa. */}
+      <div className={`conteudo ${styles.selo}`}>
+        <SeloHashord />
       </div>
       <div className={styles.pista} aria-hidden="true" />
     </footer>

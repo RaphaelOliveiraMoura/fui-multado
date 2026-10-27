@@ -48,6 +48,10 @@
   width: 11px;
 }
 
+.selo {
+  padding-bottom: 32px;
+}
+
 .texto {
   max-width: 620px;
   font-size: 15px;
