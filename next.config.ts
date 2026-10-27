@@ -20,6 +20,22 @@ const nextConfig: NextConfig = {
   // a API da PostHog usa barra no fim em alguns caminhos, e o redirecionamento automático do
   // Next quebraria o repasse
   skipTrailingSlashRedirect: true,
+  // Higiene de resposta (padrão em ~/projects/nexus/knowledge/padrao-sites-vercel.md §5): nada
+  // disso muda o que o site faz, só fecha o que ele nunca vai precisar. O HSTS a Vercel já manda.
+  poweredByHeader: false,
+  async headers() {
+    return [
+      {
+        source: '/:caminho*',
+        headers: [
+          { key: 'X-Frame-Options', value: 'DENY' },
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
